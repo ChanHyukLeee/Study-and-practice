@@ -36,6 +36,28 @@ planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', '
 planets.append('Pluto') # adding item
 planets.pop() # show last item
 planets.index('Earth') # search 'Earth'
+short_planets = [planet for planet in planets if len(planet) < 6]
+
+res = [True, False, True]
+print(res)
+
+def elementwise_greater_than(L, thresh):
+    """Return a list with the same length as L, where the value at index i is 
+    True if L[i] is greater than thresh, and False otherwise.
+    
+    >>> elementwise_greater_than([1, 2, 3, 4], 2)
+    [False, False, True, True]
+    """
+    return [ele > thresh for ele in L]
+
+def menu_is_boring(meals):
+    """Given a list of meals served over some period of time, return True if the
+    same meal has ever been served two days in a row, and False otherwise.
+    """
+    for i in range(len(meals)-1):
+        if meals[i] == meals[i+1]:
+            return True
+    return False
 
 #Tuple method
 t = (1,2,3) # or t = 1, 2, 3
