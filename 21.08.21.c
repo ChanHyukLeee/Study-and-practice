@@ -82,7 +82,7 @@ void swap(int*a, int* b){
 //     printf("a = %d, b= %d\n", a, b);
 //     return 1;
 // }
-int main(){
+int main(){ 
     char str[100] = "hello world\n";
     char *pstr = str;
     while(*pstr++){
