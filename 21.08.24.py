@@ -138,5 +138,5 @@
 # 문제 32 문자열 만들기, 문자를 입력받으면 단어의 갯수를 출력
 data = list(map(str,input().split()))
 print(len(data))
-
-
+# -> 여기에서는 input으로 받은 후 list(n.strip().split()) -> len
+# list로 바꾸는 건 맞는 듯.
