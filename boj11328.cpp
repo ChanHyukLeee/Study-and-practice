@@ -18,10 +18,17 @@ int main(void){
     for (auto c: str1) abc[c - 'a']++;
     for (auto c: str2) abc1[c - 'a']++;
     for (int j = 0; j<27; j++){
-    if(abc[j] != abc1[j]) ret[i] =1;}
+      if(abc[j] != abc1[j]) ret[i] =1;
+      abc[j] = {};
+      abc1[j] = {};
+    }
   }
   for (int i=0; i<n; i++){
-      if(ret[i] == 0) cout << "Possible" << '\n';
-      else cout << "Impossible"<< '\n';
+      if(ret[i] == 0) cout << "Possible\n";
+      else cout << "Impossible\n";
   }
 }
+
+// 배열 초기화 시키는 걸 생각못해서 푸는데 시간이 꽤많이 걸렸다
+
+// 다른 풀이
