@@ -1,3 +1,5 @@
+// 왜 안되는지 모르겠다
+
 #include <bits/stdc++.h>
 using namespace std;
 int N;
@@ -12,16 +14,18 @@ int nx, ny;
 void BFS(int i, int j){
     queue<pair<int,int>> Q;
     Q.push({i,j});
-    vis1[i][j] = 1;
+    vis1[i][j] = true;
     while(!Q.empty()){
         pair<int,int> cur = Q.front();
         Q.pop();
         for(int dir=0; dir<4; dir++){
             nx = cur.first + dx[dir];
             ny = cur.second + dy[dir];
-            if(nx <0|| nx>=N || ny<0|| ny>=N) continue;
-            if(vis1[nx][ny] == 1) continue;
-            vis1[nx][ny] = 1;
+            if(nx <0 || nx>=N || ny<0 || ny>=N) continue;
+            // 통과 안됨 why?
+            if(vis1[nx][ny] == true || board[i][j] != board[nx][ny] ) continue;           
+            
+            vis1[nx][ny] = true;
             Q.push({nx,ny});
         }
     }
@@ -47,8 +51,6 @@ int main(void){
             if(!vis1[i][j]){
                 BFS(i,j);
                 ans_1++;
-            }else{
-                cnt++;
             }
         }
     }
@@ -60,7 +62,7 @@ int main(void){
     }
     
     for(int i=0; i<N; i++){
-        fill(vis1[i], vis1[i]+N, 0);
+        fill(vis1[i], vis1[i]+N, false);
     }
 
     for(int i=0; i<N; i++){
